@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+<LinearLayout android:orientation="vertical"
+    android:id="@+id/buttonlayout"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_width="wrap_content"
+    android:layout_alignParentRight="true">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih Gambar"
+        android:id="@+id/btnSelect"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Peningkatan Kontras"
+        android:id="@+id/btnKon"
+        android:layout_below="@+id/btnFillter"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/btnEq" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Median Filter"
+        android:id="@+id/btnFillter"
+        android:layout_below="@+id/btnSelect"
+        android:layout_alignEnd="@+id/btnSelect"
+        android:layout_alignStart="@+id/btnKon" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Histogram Equalization"
+        android:id="@+id/btnEq"
+        android:layout_below="@+id/btnKon"
+        android:layout_alignParentEnd="true" />
+</LinearLayout>
+
+<RelativeLayout android:layout_height="155dp"
+    android:layout_width= "match_parent"
+    android:id="@+id/imageOriLayout"
+    android:orientation="vertical"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/original_pic"/>
+
+    <LinearLayout
+        android:id="@+id/histogram1"
+        android:layout_width="383dp"
+        android:layout_height="140dp"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+</RelativeLayout>
+
+<RelativeLayout android:layout_height="157dp"
+        android:layout_width= "match_parent"
+        android:id="@+id/imageModLayout"
+        android:orientation="vertical"
+        android:layout_below="@+id/imageOriLayout"
+        android:layout_alignStart="@+id/imageOriLayout"
+        android:layout_alignParentLeft="true">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height= "wrap_content"
+        android:id="@+id/modifed_pic"/>
+
+    <LinearLayout
+        android:id="@+id/histogram2"
+        android:layout_width="383dp"
+        android:layout_height="140dp"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+</RelativeLayout>
+
+</RelativeLayout>
