@@ -3,12 +3,16 @@ package com.pencit.tugaspengolahancitra;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -102,7 +106,7 @@ public class MainActivity extends Activity {
         });
 
 
-/*///UNTUK Peningkatan Kontras linear
+///UNTUK Peningkatan Kontras linear
         Button btnKontras = (Button) findViewById(R.id.btnKon);
         btnKontras.setOnClickListener(new OnClickListener() {
             @Override
@@ -138,7 +142,6 @@ public class MainActivity extends Activity {
                 view2.addView(new MyHistogram(getApplicationContext(),bi));
             }
         });
-    */
     }
 
     protected void onActivityResult(int requestCode, int resultCode,Intent imageReturnedIntent) {
@@ -168,7 +171,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    /*////PENINGKATAN KONTRAS
+    ////PENINGKATAN KONTRAS
     private Bitmap adjustedContrast(Bitmap src, double value)
     {
         // image size
@@ -220,7 +223,6 @@ public class MainActivity extends Activity {
         }
         return bmOut;
     }
-    */
 
     public String getRealPathFromURI(Uri contentUri) {
         Log.e("TEST", "GetRealPath : " + contentUri);
@@ -281,8 +283,8 @@ public class MainActivity extends Activity {
             img.setImageBitmap(bi);
             dismissDialog(0);
             isColored = true;
-            //view1 = (LinearLayout) findViewById(R.id.histogram1);
-           // view1.addView(new MyHistogram(getApplicationContext(),bi));
+            view1 = (LinearLayout) findViewById(R.id.histogram1);
+            view1.addView(new MyHistogram(getApplicationContext(),bi));
         }
 
     }
@@ -323,7 +325,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    /*
     class MyHistogram extends View {
 
         public MyHistogram(Context context, Bitmap bi) {
@@ -361,7 +362,7 @@ public class MainActivity extends Activity {
                         wallpaint.setColor(Color.WHITE);
                     }
 
-                    wallpaint.setStyle(Style.FILL);
+                    wallpaint.setStyle(Paint.Style.FILL);
 
                     Path wallpath = new Path();
                     wallpath.reset();
@@ -378,7 +379,6 @@ public class MainActivity extends Activity {
 
         }
     }
-    */
 
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -390,7 +390,7 @@ public class MainActivity extends Activity {
         return dataLoadProgress;
     }
 
-    /*///HISTOGRAM
+    ///HISTOGRAM
     public static int[] histogram(Bitmap img){
 
         int width = img.getWidth();
@@ -464,5 +464,4 @@ public class MainActivity extends Activity {
         }
         return new_image;
     }
-    */
 }
